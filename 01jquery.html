@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="jquery-3.5.1.js"></script>  다운받은 js파일명 적기 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!--w3school 에서 복사-->
+    
+    <script>
+        var count=0;
+        var state=0;
+        $(document).ready(function(){          //js onload와 비슷. 
+            $("p").click(function(){
+             $(this).hide();
+            });
+        });
+        $(document).ready(function(){
+            $("#rec").mouseover(function(){
+                switch(state){
+                case 0:
+                $(this).animate({
+                    left:'200px',top:'300px'
+                });
+                break;
+                case 1:
+                $(this).animate({
+                    left:'0px',top:'300px'
+                });
+                break;
+                case 2:
+                $(this).animate({
+                    left:'0px',top:'0px'
+                });
+                break;
+                case 3:
+                $(this).animate({
+                    left:'200px',top:'0px'
+                });
+                break;
+                state=++state%4;
+                
+            }
+                
+                // switch(count%4){
+                //     case 0:
+                //     $(this).css({"left":'0px',"top":'200px'});
+                //     break;
+                //     case 1:
+                //     $(this).css({"left":"200px","top":"200px"});
+                //     break;
+                //     case 2:
+                //     $(this).css({"left":"200px","top":"300px"});
+                //     break;
+                //     case 3:
+                //     $(this).css({"left":"0px","top":"300px"});
+                //     break;    
+               
+                // count++;
+                
+                // }
+                
+            });
+        });
+        function appendText(){
+            var txt1 = "<p>Text1</p>";
+            var txt2 = $("<p></p>").text("Text2");
+            var txt3 = document.createElement("p");
+            txt3.innerHTML = "Text3";
+            $("body").append(txt1,txt2,txt3);
+        }
+    </script>
+</head>
+<body>
+    <p>click</p>
+    <div id="rec" style="position: absolute; border: 1px solid; width: 50px; height:50px; left: 0px; top: 0px;"></div>
+    <p>This is a paragraph.</p>
+    <button onclick="appendText()">Append text 추가하기</button>
+</body>
+</html>
