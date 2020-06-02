@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script>
+        $(document).ready(function(){
+           $("#box>ul>li").hover(
+               function(){
+                $(this).find(".pagecurl").stop().animate({
+                        left:"-100px",
+                        top:"-100px"
+                    },300); //밀리초
+               },
+               function(){
+                $(this).find(".pagecurl").stop().animate({
+                        left:"0px",
+                        top:"0px"
+                    },300); 
+               }
+           );
+
+
+        })
+    </script>
+    <style>
+        ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        #box>ul>li{
+            width: 115px;
+            height: 94px;
+            overflow: hidden;
+            list-style: none;
+            position: relative;
+            cursor: pointer;
+        }
+        .pagecurl{
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            top:0;
+        }
+    </style>
+</head>
+<body>
+   
+<div id="box">
+<ul>
+<li id="menu1">
+<img src= "images/menu1.jpg">
+<div class="pagecurl"><img src= "images/menu1_over.jpg"></div>
+</li>
+<li id="menu2">
+<img src= "images/menu2.jpg">
+<div class="pagecurl"><img src= "images/menu2_over.jpg"></div>
+</li>
+<li id="menu3">
+<img src= "images/menu3.jpg">
+<div class="pagecurl"><img src= "images/menu3_over.jpg"></div>
+</li>
+<li id="menu4">
+    <img src= "images/menu4.jpg">
+<div class="pagecurl"><img src= "images/menu4_over.jpg"></div>
+</li>
+<li id="menu5">
+<img src= "images/menu5.jpg">
+<div class="pagecurl"><img src= "images/menu5_over.jpg"></div>
+</li>
+</ul>
+</div>
+
+</body>
+</html>
