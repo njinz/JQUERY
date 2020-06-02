@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script src="js/jquery-ui.js"></script>
+    <style>
+        div{
+            width: 20px;
+            height: 20px;
+            background-color: orange;
+            border-radius: 80%;
+            position: relative;
+            left: 30px;
+        }
+    </style>
+    <script>
+        $(function(){
+            $("button").click(function(){
+            $("div").eq(0).animate({'left':300},1500,'linear');
+            $("div").eq(1).animate({'left':300},1500,'swing');
+            $("div").eq(2).animate({'left':300},1500,'easeInBack');
+            $("div").eq(3).animate({'left':300},1500,'easeOutBounce');
+
+            $("div").delay(1000);
+            $("div").eq(0).fadeOut('clip'); //clip형태로 사라짐(아래-위)
+            })
+           
+        })
+    </script>
+</head>
+<body>
+    <button>start</button>
+    <p>linear:<div></div></p>
+    <p>swing:<div></div></p>
+    <p>easeInBack:<div></div></p>
+    <p>easeOutBounce:<div></div></p>
+</body>
+</html>

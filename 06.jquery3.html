@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script src="js/jquery-ui.js"></script>
+    <style>
+    </style>
+    <script>
+        $(function(){
+            $("#my_form").submit(
+                function(e) { 
+                    // e.preventDefault(); //입력안하고 누르면 submit 이동을 방지.
+                    var name = $("#name").val(); //val():  사용자입력한것을 받아옴
+                    var password=$("#password").val();
+                    if(name!=""&&password!=""){
+                        //둘다 입력하였을 경우 ->정상처리 
+                        alert(name+":"+password);
+                    }else{
+                        alert(name+":"+password);
+                        e.preventDefault();
+                    }
+                 }
+            )
+        })
+    </script>
+</head>
+<body>
+    <!--pattern = 정규식-->
+    <form action="http://www.daum.net" id="my_form">
+        <input type="text" name="name" id="name"/><br>
+        <input type="password" name="password" id="password"/><br>
+        <input type="submit" value="제출"/><br>
+    </form>
+</body>
+</html>
