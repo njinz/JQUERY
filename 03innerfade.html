@@ -1,0 +1,44 @@
+<!--naver cafe jquery게시판 4683번 파일-->
+<!--jquery 플러그인-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script src="js/jquery.innerfade.js"></script>
+    <script>
+        $(function(){                   //이렇게 간소화 표현도 가능
+            $('#number').innerfade();   //천천히 하나씩 변경됨
+        })
+        $('#fade').innerfade({
+        animationtype:'fade',
+        speed: 'slow',
+        timeout: 2000,
+        type: 'sequence',
+        containerheight: '300px'
+        });
+
+
+    </script>
+    <style>
+        ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        ul li{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <ul id="number">
+        <li><img src="images/menu1.jpg"/></li>
+        <li><img src="images/menu2.jpg"/></li>
+        <li><img src="images/menu3.jpg"/></li>
+        <li><img src="images/menu4.jpg"/></li>
+    </ul>
+</body>
+</html>
