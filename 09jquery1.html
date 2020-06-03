@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>기본적인 세로 메뉴의 시작</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    }
+body {
+    margin: 20px auto;
+    padding: 0;
+    font-family: "맑은 고딕";
+    font-size: 0.9em;
+}
+li.group{
+    margin-bottom: 3px;
+}
+ul{
+    width: 200px;
+    list-style: none;
+}
+ul.sub li{
+    margin-bottom: 2px;
+    height: 35px;
+    line-height: 35px;
+    background-color: rgba(24, 22, 22, 0.226);
+}
+ul.sub li a{
+    
+    display: block;
+    text-decoration: none;
+    color: #000000;
+}
+ul.sub li a:hover{
+    background:#cf0;
+}
+div.title{
+    height: 35px;
+    line-height: 35px;
+    background-color: rgb(141, 202, 19);
+    cursor: pointer;
+}
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+<script>
+    /*
+    .css("display","none");
+    .css("display","none");
+     .css({display:"none"}); 여러개 쓸경우
+    */
+    $(function() { 
+        $(".sub").hide(); //sub menu 안보이게
+        $(".title").hover(function(){
+            $(".sub").slideUp(); //한메뉴 누르면 다른 메뉴 닫히게
+            if( $(this).next().css("display")=="block"){
+            $(this).next().slideUp();
+        }else{
+            $(this).next().slideDown();
+        }
+        },function(){
+            
+        }
+     )
+    })
+</script>
+</head>
+
+<body>
+<ul id="navi">
+    <li class="group">
+        <div class="title">title 1</div>
+        <ul class="sub">
+            <li><a href="#">sub1</a></li>
+            <li><a href="#">sub1</a></li>
+            <li><a href="#">sub1</a></li>
+        </ul>
+    </li>
+    <li class="group">
+        <div class="title">title 2</div>
+        <ul class="sub">
+            <li><a href="#">sub2</a></li>
+        </ul>
+    </li>
+    <li class  ="group">
+        <div class="title">title 3</div>
+        <ul class="sub">
+            <li><a href="#">sub3</a></li>
+            <li><a href="#">sub3</a></li>
+        </ul>
+    </li>
+</ul>
+
+</body>
+</html>
