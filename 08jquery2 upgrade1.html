@@ -1,0 +1,114 @@
+<!-- hover slide down, slid up 메뉴 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script src="js/jquery-ui.js"></script>
+    <style>
+        li>div>div{
+            display: none;
+        }
+        li {
+           float: left;
+           list-style: none;
+           width: 120px;
+
+        }
+        li a{
+            display: block;
+            text-decoration: none;
+            text-align: center;
+            padding: 15px 0px;
+            width: 120px;
+            background-color:rgb(255, 166,0);
+            color: white;
+        }
+        
+
+    </style>
+    <script>
+        $(function(){
+            $("li>div").hover(        //hover는 매개변수로 함수 2개 받음.
+                function(){
+                    // var overColor = "red";
+                    //body에 사용자 정의 속성으로 정한  color로 바뀌도록 지정해보자
+                    // alert($(this).attr("data-bg"));  //이걸 사용하자.
+                    // alert($(this).prop("data-bg"));  //undefined 뜸
+                    var overColor = $(this).find("a").attr("data-bg");
+                    $(this).children("a").stop().animate({"background-color":overColor},300);
+                    $(this).find("a").next("div").stop().slideDown(); //next:형제
+                },
+                function(){
+                    $(this).find("a").stop().animate({"background-color":"rgb(255,166,0)"},300);
+                    $(this).find("a").next("div").stop().slideUp();
+                }
+            )
+            $("div>div>a").hover(function(){
+                    var overColor ="red";
+                    $(this).stop().animate({"background-color":overColor},300);
+            },
+            function(){
+                    $(this).stop().animate({"background-color":"rgb(255,166,0)"},300);
+            })
+        }
+    )
+    </script>
+</head>
+<body>
+    <ul>
+        <li>
+            <div>
+                <a href="#" data-bg="#00ffff">home</a> <!--사용자정의 속성 "data-" 로 관용적 syntax-->
+                <div>
+                    <div><a href="#">css</a></div>
+                    <div><a href="#">html</a></div>
+                    <div><a href="#">java</a></div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div>
+                <a href="#"data-bg="#00ff00">home</a>
+                <div>
+                    <div><a href="#">css</a></div>
+                    <div><a href="#">html</a></div>
+                    <div><a href="#">java</a></div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div>
+                <a href="#" data-bg="#ff0000">home</a>
+                <div>
+                    <div><a href="#">css</a></div>
+                    <div><a href="#">html</a></div>
+                    <div><a href="#">java</a></div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div>
+                <a href="#" data-bg="#00000f">home</a>
+                <div>
+                    <div><a href="#">css</a></div>
+                    <div><a href="#">html</a></div>
+                    <div><a href="#">java</a></div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div>
+                <a href="#" data-bg="#00ff0f">home</a>
+                <div>
+                    <div><a href="#">css</a></div>
+                    <div><a href="#">html</a></div>
+                    <div><a href="#">java</a></div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</body>
+</html>
