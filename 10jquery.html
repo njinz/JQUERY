@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+   
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .group1{                    /*화면크기에 상관없이 동일한 모습 보여주고자 div로 전체 묶음*/
+            width: 1200px;
+
+        }
+        .div01{
+            outline: 1px solid rgb(103, 7, 230);
+            float: left;
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+    </style>
+    <script>
+    $(document).ready(function(){
+        $(".div01").hover(function(){   //자신의 크기를 200->400으로 바뀜
+            $(this).stop().animate({width:400},200);
+        },function(){
+            $(this).stop().animate({width:200},200)
+        })
+    })
+
+    </script>
+</head>
+<body>
+    <div class="group1">
+    <div class="div01" id="box1">
+        <div style="width: 400; background-color: black;">                       <!--주의 ! 400 과 400px은 다름-->
+            <span><img src="images/2.jpg" width="200" height="200"></span><img src="images/1.gif" width="200" height="200">
+        </div>
+    </div>
+
+    <div class="div01" id="box2">
+        <div style="width: 400; background-color: black;">
+            <span><img src="images/2.jpg" width="200" height="200"></span><img src="images/2.gif" width="200" height="200">
+        </div>
+    </div>
+
+    <div class="div01" id="box3">
+        <div style="width: 400; background-color: black;">
+            <span><img src="images/2.jpg" width="200" height="200"></span><img src="images/3.gif" width="200" height="200">
+        </div>
+    </div>
+</div>
+</body>
+</html>
